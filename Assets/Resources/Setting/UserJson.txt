@@ -1,0 +1,1 @@
+[{"Hp":20,"MaxHp":100,"Attack":10,"Speed":1}]
