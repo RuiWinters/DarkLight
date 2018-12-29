@@ -76,7 +76,7 @@ public class EquipPanel : TTUIPage
     /// 显示物品信息
     /// </summary>
     /// <param name="gm"></param>
-    private void ShowSelectedItemInfo(GoodsModel gm)
+    private void ShowSelectedItemInfo(ItemModel gm)
     {
         Debug.Log(gm.Id);
         infoParent.gameObject.SetActive(true);
@@ -113,7 +113,7 @@ public class EquipPanel : TTUIPage
 
         //遍历物品信息
         int j = 0;
-        foreach (GoodsModel goodModel in Save.EquipItemList)
+        foreach (ItemModel goodModel in Save.EquipItemList)
         {
             if (goodModel.Num != 0)//物品数量不等于零时
             {

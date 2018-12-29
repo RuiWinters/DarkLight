@@ -525,7 +525,7 @@ public class PlayerSkill : MonoBehaviour {
 				{
 					if(activeSkillSupport[indexSkill].castTime > 0)
 					{
-						SoundManager.instance.PlayingSound("Cast_Skill");
+						SoundManager.Instance.PlayingSound("Cast_Skill");
 						if(magicCircle != null)
 							Destroy(magicCircle);
 						magicCircle = (GameObject)Instantiate(GameSetting.Instance.castEffect,new Vector3(transform.position.x,transform.position.y+0.01f,transform.position.z),Quaternion.identity);
@@ -535,7 +535,7 @@ public class PlayerSkill : MonoBehaviour {
 					}
 				}else if(skillType == "Attack" && activeSkillAttack[indexSkill].skillType == SkillType.Instance && activeSkillAttack[indexSkill].castTime > 0)
 				{
-					SoundManager.instance.PlayingSound("Cast_Skill");
+					SoundManager.Instance.PlayingSound("Cast_Skill");
 					if(magicCircle != null)
 							Destroy(magicCircle);
 					magicCircle = (GameObject)Instantiate(GameSetting.Instance.castEffect,new Vector3(transform.position.x,transform.position.y+0.01f,transform.position.z),Quaternion.identity);
@@ -544,7 +544,7 @@ public class PlayerSkill : MonoBehaviour {
 					activeSkillAttack[indexSkill].castTimer = 0;
 				}else if(skillType == "Attack" && activeSkillAttack[indexSkill].skillType == SkillType.LockTarget && activeSkillAttack[indexSkill].castTime > 0)
 				{
-					SoundManager.instance.PlayingSound("Cast_Skill");
+					SoundManager.Instance.PlayingSound("Cast_Skill");
 					playerStatus.statusCal.mp -= activeSkillAttack[indexSkill].mpUse;
 					GameSetting.Instance.SetMouseCursor(0);
 					if(magicCircle != null)
@@ -555,7 +555,7 @@ public class PlayerSkill : MonoBehaviour {
 					activeSkillAttack[indexSkill].castTimer = 0;
 				}else if(skillType == "Attack" && activeSkillAttack[indexSkill].skillType == SkillType.FreeTarget && activeSkillAttack[indexSkill].castTime > 0)
 				{
-					SoundManager.instance.PlayingSound("Cast_Skill");
+					SoundManager.Instance.PlayingSound("Cast_Skill");
 					playerStatus.statusCal.mp -= activeSkillAttack[indexSkill].mpUse;
 					GameSetting.Instance.SetMouseCursor(0);
 					if(magicCircle != null)

@@ -158,7 +158,7 @@ public class PlayerStatus : MonoBehaviour {
 		//Level UP
 		if(status.exp >= expMax)
 		{
-			SoundManager.instance.PlayingSound("BuyItem");
+			SoundManager.Instance.PlayingSound("BuyItem");
 			Instantiate(GameSetting.Instance.levelUpEffect,new Vector3(transform.position.x,transform.position.y+0.01f,transform.position.z),Quaternion.identity);
 			pointCurrent += pointPerLv;
 			

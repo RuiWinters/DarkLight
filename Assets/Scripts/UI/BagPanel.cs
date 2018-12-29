@@ -69,7 +69,7 @@ public class BagPanel : TTUIPage
     /// 显示物品信息
     /// </summary>
     /// <param name="gm"></param>
-    private void ShowSelectedItemInfo(GoodsModel gm)
+    private void ShowSelectedItemInfo(ItemModel gm)
     {
         //Debug.Log(gm.Id);
         infoParent.gameObject.SetActive(true);
@@ -136,7 +136,7 @@ public class BagPanel : TTUIPage
 
         //遍历物品信息
         int j = 0;
-        foreach (GoodsModel item in Save.BagItemList)
+        foreach (ItemModel item in Save.BagItemList)
         {
             if (item.Num != 0)//物品数量不等于零时
             {

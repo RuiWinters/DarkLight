@@ -123,7 +123,7 @@ public class UIManager : MonoBehaviour
     /// 提示框中的使用物品按钮方法
     /// </summary>
     //当前使用的物品
-    public GoodsModel CurrentGoods;
+    public ItemModel CurrentGoods;
 
     /// <summary>
     /// 使用物品

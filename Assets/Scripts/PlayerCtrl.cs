@@ -5,9 +5,9 @@ using DG.Tweening;
 
 public class PlayerCtrl : MonoBehaviour {
     CharacterController myCharacterController;
-    public float moveV, moveH;
-    public float rH, rV;
-    public float spd = 5;
+    private float moveV, moveH;
+    private float rH, rV;
+    private float spd = 5;
     Animator myAnimator;
 
     public GameObject effect;

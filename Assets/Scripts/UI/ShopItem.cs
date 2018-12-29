@@ -43,7 +43,7 @@ public class ShopItem : MonoBehaviour,IPointerDownHandler
         //购买按钮
         buttonBuy.onClick.AddListener(() => {
             Save.AddItemToBag(itemInfo);
-            SoundManager.instance.PlayingSound("BuyItem");
+            SoundManager.Instance.PlayingSound("BuyItem");
 
             TTUIPage.ShowPage<TipPanel>("购买成功！");
             toggle.isOn = true;

@@ -777,7 +777,7 @@ public class HeroController : MonoBehaviour {
 		if(playerStatus.statusCal.spd - targetHit > 0) //Attack Miss
 		{
 			InitTextDamage(Color.white,"Miss");
-			SoundManager.instance.PlayingSound("Attack_Miss");
+			SoundManager.Instance.PlayingSound("Attack_Miss");
 			
 		}else
 		{

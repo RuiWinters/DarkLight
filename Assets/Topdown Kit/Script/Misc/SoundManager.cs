@@ -8,9 +8,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TinyTeam.UI;
 
-public class SoundManager : MonoBehaviour {
-	
-	
+public class SoundManager:MonoSingletion<SoundManager>
+{	
 	[System.Serializable]
 	public class SoundGroup
     {
@@ -19,19 +18,6 @@ public class SoundManager : MonoBehaviour {
 	}	
 	public List<SoundGroup> sound_List = new List<SoundGroup>();
 
-	public static SoundManager instance;
-	
-	public void Start(){
-		instance = this;	
-	}
-
-    void Update()
-    {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    SoundManager.instance.PlayingSound("Level_Up");
-        //}
-    }
 	
     /// <summary>
     /// ≤•∑≈“Ù–ß

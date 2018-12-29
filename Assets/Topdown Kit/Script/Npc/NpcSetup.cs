@@ -128,7 +128,7 @@ public class NpcSetup : MonoBehaviour {
 			if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter))
 			{
 				
-				SoundManager.instance.PlayingSound("Next_Dialog");
+				SoundManager.Instance.PlayingSound("Next_Dialog");
 				
 				if(indexDialog < dialogSetting.Count-1)
 				{
@@ -174,7 +174,7 @@ public class NpcSetup : MonoBehaviour {
 					if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || resetMessageBox)
 					{
 						if(!QuestWindow.enableWindow)
-						SoundManager.instance.PlayingSound("Next_Dialog");
+						SoundManager.Instance.PlayingSound("Next_Dialog");
 					
 						if(indexDialog < dialogQuest.Count-1)
 						{
@@ -207,7 +207,7 @@ public class NpcSetup : MonoBehaviour {
 			if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter))
 			{
 				
-				SoundManager.instance.PlayingSound("Next_Dialog");
+				SoundManager.Instance.PlayingSound("Next_Dialog");
 				
 				if(questNpcState == QuestNpcState.InProgress)
 				{

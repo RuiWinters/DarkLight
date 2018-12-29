@@ -21,7 +21,26 @@ public class TaskManager : MonoSingletion<TaskManager>
     void Start()
     {
         MesManager.Instance.checkEvent += CheckTask;
+        TaskAnalysis();
     }
+
+    /// <summary>
+    /// 任务数据解析
+    /// </summary>
+    void TaskAnalysis()
+    {
+        TextAsset goodsTA = Resources.Load("Setting/MyTask") as TextAsset;
+        if (!goodsTA)
+        {
+            Debug.Log("TaskItemList文件不存在！");
+            return;
+        }
+        else
+        {
+            currentTaskDic = JsonConvert.DeserializeObject<Dictionary<string, Task>>(goodsTA.text);
+        }     
+    }
+
 
     /// <summary>
     /// 获取当前的任务信息
@@ -73,6 +92,8 @@ public class TaskManager : MonoSingletion<TaskManager>
         }
     }
 
+
+
     /// <summary>
     /// 更新任务进度
     /// </summary>
@@ -114,8 +135,7 @@ public class TaskManager : MonoSingletion<TaskManager>
                     }  
                 }
             }
-
-            
+  
             for (int i = 0; i < kv.Value.taskConditions.Count; i++)
             {
                 tc = kv.Value.taskConditions[i];

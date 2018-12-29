@@ -88,7 +88,7 @@ public class QuestWindow : MonoBehaviour {
 				//Draw accept button
 				if(GUI.Button(new Rect(buttonAccept.position.x,buttonAccept.position.y,buttonAccept.size.x,buttonAccept.size.y),"",buttonAccept.buttonStlye))
 				{
-					SoundManager.instance.PlayingSound("Accept_Quest");
+					SoundManager.Instance.PlayingSound("Accept_Quest");
 					NpcSetup.resetMessageBox = true;
 					NpcSetup.disableNext = false;
 					MessageBox.showMessageBox = false;

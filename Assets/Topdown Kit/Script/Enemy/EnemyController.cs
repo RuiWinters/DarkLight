@@ -434,7 +434,7 @@ public class EnemyController : MonoBehaviour {
 		
 		if(enemyStatus.status.spd - targetHit > 0) //Attack Miss
 		{
-			SoundManager.instance.PlayingSound("Attack_Miss");
+			SoundManager.Instance.PlayingSound("Attack_Miss");
 			InitTextDamage(Color.white,"Miss");
 			
 			//Lock Target

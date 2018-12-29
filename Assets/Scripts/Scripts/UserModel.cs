@@ -16,7 +16,7 @@ public class UserModel
 }
 
 [System.Serializable]
-public class GoodsModel //商品信息
+public class ItemModel //商品信息
 {
     public int Id;
     //public string Name;
@@ -40,12 +40,12 @@ public class Save
     /// <summary>
     /// 背包里的物品s
     /// </summary>
-    public static List<GoodsModel> BagItemList;
+    public static List<ItemModel> BagItemList;
 
     /// <summary>
     /// 装备栏里的物品s
     /// </summary>
-    public static List<GoodsModel> EquipItemList
+    public static List<ItemModel> EquipItemList
     {
         get;set;
     }
@@ -58,17 +58,17 @@ public class Save
     {
         if (BagItemList == null)
         {
-            BagItemList = new List<GoodsModel>();
+            BagItemList = new List<ItemModel>();
         }
         //先看看背包里有没有
-        GoodsModel gm = BagItemList.Find(x => x.Id == _item.item_ID);
+        ItemModel gm = BagItemList.Find(x => x.Id == _item.item_ID);
         if (gm != null)//有，数量加1
         {
             gm.Num += 1;
         }
         else//没有，添加新的
         {
-            BagItemList.Add(new GoodsModel() { Id = _item.item_ID, Num = 1 });
+            BagItemList.Add(new ItemModel() { Id = _item.item_ID, Num = 1 });
         }
         SaveBag();
     }
@@ -91,18 +91,18 @@ public class Save
     {
         if (EquipItemList == null)
         {
-            EquipItemList = new List<GoodsModel>();//
+            EquipItemList = new List<ItemModel>();//
         }
         //更新装备List信息
         //判断装备栏里有没有同类型的，如果没有，穿;如果有，换
-        GoodsModel good = EquipItemList.Find(x => x.Id == _id);
+        ItemModel good = EquipItemList.Find(x => x.Id == _id);
         if (good != null)//脱
         {
             EquipItemList.Remove(good);//把旧物品从装备栏里移除
             BagItemList.Add(good);//把旧物品加到背包里
         }
         //穿
-        EquipItemList.Add(new GoodsModel() { Id = _id, Num = 1 });
+        EquipItemList.Add(new ItemModel() { Id = _id, Num = 1 });
 
         SaveEquip();
 
@@ -156,7 +156,7 @@ public class Save
     /// </summary>
     private static void UseItem(int _id)
     {
-        GoodsModel gm = BagItemList.Find(x => x.Id == _id);
+        ItemModel gm = BagItemList.Find(x => x.Id == _id);
         gm.Num--;
         if (gm.Num<=0)
         {
@@ -167,7 +167,7 @@ public class Save
 
     public static void SaveTask(Dictionary<string, Task> taskDict)
     {
-        string path = Application.dataPath + @"/Resources/Setting/MyTaskDict.json";
+        string path = Application.dataPath + @"/Resources/Setting/MyTask.json";
 
         using (StreamWriter sw = new StreamWriter(path))
         {

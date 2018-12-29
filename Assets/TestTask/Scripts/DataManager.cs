@@ -9,10 +9,6 @@ public class DataManager : MonoSingletion<DataManager>
     /// 总的数据字典，存放所有的任务
     /// </summary>
     private Dictionary<string, Task> taskDic = new Dictionary<string, Task>();//id,task
-    /// <summary>
-    /// 任务数据
-    /// </summary>
-    public TextAsset mTextAsset;
 
     /// <summary>
     /// 存放所有物品
@@ -21,14 +17,19 @@ public class DataManager : MonoSingletion<DataManager>
 
     void Awake()
     {
-        if (mTextAsset == null)
+        TextAsset mTaskAsset = (TextAsset)Resources.Load("TXT/Task", typeof(TextAsset));
+        if (mTaskAsset == null)
         {
-            mTextAsset = (TextAsset)Resources.Load("TXT/Task", typeof(TextAsset));
+            Debug.Log("任务数据不存在!请检查你的项目！");
+            return;
         }
-        taskDic = JsonConvert.DeserializeObject<Dictionary<string, Task>>(mTextAsset.text);
-
+        taskDic = JsonConvert.DeserializeObject<Dictionary<string, Task>>(mTaskAsset.text);
 
         TextAsset ta = Resources.Load("ItemData/ItemData") as TextAsset;
+        if (mTaskAsset == null)
+        {
+            Debug.Log("物品数据不存在!");
+        }
         itemList = JsonConvert.DeserializeObject<List<Item>>(ta.text);
     }
 

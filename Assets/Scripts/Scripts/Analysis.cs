@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System;
 
 /// <summary>
-/// 解析数据
+/// 解析用户数据
 /// </summary>
 public class Analysis : MonoBehaviour
 {
-	void Awake () {
+	void Awake ()
+    {
         // 用户数据解析
         UserAnalysis();
         // 物品数据解析
@@ -29,7 +30,7 @@ public class Analysis : MonoBehaviour
             Debug.Log("EquipItemList文件不存在！");
             return;
         }
-        Save.EquipItemList = JsonConvert.DeserializeObject<List<GoodsModel>>(goodsTA.text);
+        Save.EquipItemList = JsonConvert.DeserializeObject<List<ItemModel>>(goodsTA.text);
         print(goodsTA.text);
     }
 
@@ -58,21 +59,7 @@ public class Analysis : MonoBehaviour
             Debug.Log("BagItemList文件不存在！");
             return;
         }
-        Save.BagItemList = JsonConvert.DeserializeObject<List<GoodsModel>>(goodsTA.text);
+        Save.BagItemList = JsonConvert.DeserializeObject<List<ItemModel>>(goodsTA.text);
         print(goodsTA.text);
-    }
-
-    /// <summary>
-    /// 任务数据解析
-    /// </summary>
-    void TaskAnalysis()
-    {
-        TextAsset goodsTA = Resources.Load("Setting/TaskItemList") as TextAsset;
-        if (!goodsTA)
-        {
-            Debug.Log("BagItemList文件不存在！");
-            return;
-        }
-        Save.BagItemList = JsonConvert.DeserializeObject<List<GoodsModel>>(goodsTA.text);
     }
 }
